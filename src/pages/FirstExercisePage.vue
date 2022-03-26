@@ -1,44 +1,48 @@
 <template>
   <div class="first-exercise">
     <section>
-      <div v-if="true" class="first-exercise__quest">
-        <div class="first-exercise__quest-item">
+      <h2 v-if="!changeVisibleQuestOrAnswer" class="first-exercise__right-answer">
+        Правильно!
+      </h2>
+      <transition name="mode-fade" mode="out-in">
+        <div v-if="changeVisibleQuestOrAnswer" class="first-exercise__quest">
+          <div class="first-exercise__quest-item">
+            <el-image
+              :src="pathToQuestOneImage"
+            />
+          </div>
+          <div class="first-exercise__quest-item">
+            <el-image
+              :src="pathToQuestTwoImage"
+            />
+          </div>
+        </div>
+        <div v-else class="first-exercise__quest-item">
           <el-image
-            :src="pathToQuestOneImage"
+            :src="pathToAnswerFourImage"
           />
         </div>
-        <div class="first-exercise__quest-item">
-          <el-image
-            :src="pathToQuestTwoImage"
-          />
-        </div>
-      </div>
-      <div v-else>
-        <el-image
-          :src="pathToQuestImage"
-          :fit="'fit'"
-        />
-      </div>
+      </transition>
     </section>
     <section>
       <h2>Выберите ответ</h2>
       <div class="first-exercise__answer">
-        <div class="first-exercise__answer-item">
+        <div class="first-exercise__answer-item" @click="handleClickWrongAnswer">
           <el-image
             :src="pathToAnswerOneImage"
           />
         </div>
-        <div class="first-exercise__answer-item">
+        <div class="first-exercise__answer-item" @click="handleClickWrongAnswer">
           <el-image
             :src="pathToAnswerTwoImage"
           />
         </div>
-        <div class="first-exercise__answer-item">
+        <div class="first-exercise__answer-item" @click="handleClickWrongAnswer">
           <el-image
             :src="pathToAnswerThreeImage"
           />
         </div>
-        <div class="first-exercise__answer-item">
+        <div class="first-exercise__answer-item" @click="handleClickRightAnswer">
           <el-image
             :src="pathToAnswerFourImage"
           />
@@ -60,6 +64,8 @@ export default {
   name: 'FirstExercisePage',
   data() {
     return {
+      changeVisibleQuestOrAnswer: true,
+
       pathToQuestOneImage: QuestOne,
       pathToQuestTwoImage: QuestTwo,
       pathToAnswerOneImage: AnswerOne,
@@ -67,16 +73,38 @@ export default {
       pathToAnswerThreeImage: AnswerThree,
       pathToAnswerFourImage: AnswerFour,
     }
+  },
+  methods: {
+    handleClickWrongAnswer() {
+      alert('Неправильный ответ')
+    },
+    handleClickRightAnswer() {
+      this.changeVisibleQuestOrAnswer = !this.changeVisibleQuestOrAnswer
+    },
   }
 }
 </script>
 
 <style scoped lang="scss">
+.mode-fade-enter-active, .mode-fade-leave-active {
+  transition: opacity 1.5s ease;
+}
+
+.mode-fade-enter-from, .mode-fade-leave-to {
+  opacity: 0;
+}
+
 .first-exercise {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  &__right-answer {
+    position: absolute;
+    left: 48%;
+    top: 1%;
+  }
 
   &__answer {
     display: flex;
@@ -93,6 +121,10 @@ export default {
       height: 40%;
       background: #808080ff;
     }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__quest {
@@ -101,12 +133,12 @@ export default {
     justify-content: space-between;
 
     &-item {
-      margin: 16px;
+      margin: 45px 16px 16px;
       border: 1px solid #000;
       border-radius: 15px;
       padding: 16px;
-      width: 230px;
-      height: 230px;
+      width: 225px;
+      height: 225px;
       background: #808080ff;
     }
   }

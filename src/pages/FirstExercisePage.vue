@@ -4,12 +4,12 @@
       <div v-if="true" class="first-exercise__quest">
         <div class="first-exercise__quest-item">
           <el-image
-            :src="pathToQuestImage"
+            :src="pathToQuestOneImage"
           />
         </div>
         <div class="first-exercise__quest-item">
           <el-image
-            :src="pathToQuestImage"
+            :src="pathToQuestTwoImage"
           />
         </div>
       </div>
@@ -25,22 +25,22 @@
       <div class="first-exercise__answer">
         <div class="first-exercise__answer-item">
           <el-image
-            :src="pathToQuestImage"
+            :src="pathToAnswerOneImage"
           />
         </div>
         <div class="first-exercise__answer-item">
           <el-image
-            :src="pathToQuestImage"
+            :src="pathToAnswerTwoImage"
           />
         </div>
         <div class="first-exercise__answer-item">
           <el-image
-            :src="pathToQuestImage"
+            :src="pathToAnswerThreeImage"
           />
         </div>
         <div class="first-exercise__answer-item">
           <el-image
-            :src="pathToQuestImage"
+            :src="pathToAnswerFourImage"
           />
         </div>
       </div>
@@ -49,13 +49,23 @@
 </template>
 
 <script>
-import picture from '../assets/cover.jpg'
+import QuestOne from '../assets/QuestOne.png'
+import QuestTwo from '../assets/QuestTwo.png'
+import AnswerOne from '../assets/AnswerOne.png'
+import AnswerTwo from '../assets/AnswerTwo.png'
+import AnswerThree from '../assets/AnswerThree.png'
+import AnswerFour from '../assets/AnswerFour.png'
 
 export default {
   name: 'FirstExercisePage',
   data() {
     return {
-      pathToQuestImage: picture
+      pathToQuestOneImage: QuestOne,
+      pathToQuestTwoImage: QuestTwo,
+      pathToAnswerOneImage: AnswerOne,
+      pathToAnswerTwoImage: AnswerTwo,
+      pathToAnswerThreeImage: AnswerThree,
+      pathToAnswerFourImage: AnswerFour,
     }
   }
 }
@@ -70,13 +80,18 @@ export default {
 
   &__answer {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
+    width: 500px;
+    height: 500px;
 
     &-item {
       margin: 4px;
+      border: 1px solid #000;
       border-radius: 15px;
+      padding: 16px;
       width: 40%;
       height: 40%;
+      background: #808080ff;
     }
   }
 
@@ -87,9 +102,12 @@ export default {
 
     &-item {
       margin: 16px;
+      border: 1px solid #000;
       border-radius: 15px;
-      width: 400px;
-      height: 400px;
+      padding: 16px;
+      width: 230px;
+      height: 230px;
+      background: #808080ff;
     }
   }
 }

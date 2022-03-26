@@ -14,7 +14,7 @@
         </p>
       </div>
       <div>
-        <el-button type="success">
+        <el-button type="success" @click="handleClickOnFirstExercize">
           Начать упражнение
         </el-button>
       </div>
@@ -48,8 +48,15 @@
 </template>
 
 <script>
+import router from '../router'
+
 export default {
-  name: 'MenuPage'
+  name: 'MenuPage',
+  methods: {
+    handleClickOnFirstExercize() {
+      router.push('exercise')
+    }
+  }
 }
 </script>
 

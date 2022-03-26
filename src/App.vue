@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <router-view />
+    <div>
+      <router-view />
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-body {
-  height: 100% !important;
-}
-
-#app {
+* {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 100% !important;
+  height: 100%;
 }
 </style>

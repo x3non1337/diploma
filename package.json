@@ -1,0 +1,53 @@
+{
+  "name": "SIRS",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint:js": "eslint . --ext .js,.vue,.ts  --ignore-path .gitignore",
+    "lint:style": "stylelint \"**/*.{vue,css,scss}\" --ignore-path .gitignore",
+    "lint": "npm run lint:js && npm run lint:style",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "element-plus": "^1.0.2-beta.60",
+    "style-resources-loader": "^1.4.1",
+    "svg-sprite-loader": "^6.0.9",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^7.0.0",
+    "husky": "^7.0.1",
+    "node-sass": "^4.12.0",
+    "sass": "^1.36.0",
+    "sass-loader": "^10.0.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended-scss": "^4.3.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.4.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.20.1",
+    "stylelint-webpack-plugin": "^3.0.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

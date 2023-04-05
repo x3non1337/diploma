@@ -1,7 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MenuPage from '../pages/MenuPage'
+// import LoginPage from "@/pages/LoginPage";
 
 const routes = [
+  // {
+  //   path: '/',
+  //   name: 'login',
+  //   component: LoginPage
+  // },
   {
     path: '/',
     name: 'Menu',

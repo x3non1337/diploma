@@ -53,18 +53,19 @@
 </template>
 
 <script>
-import QuestOne from '../assets/QuestOne.png'
-import QuestTwo from '../assets/QuestTwo.png'
-import AnswerOne from '../assets/AnswerOne.png'
-import AnswerTwo from '../assets/AnswerTwo.png'
-import AnswerThree from '../assets/AnswerThree.png'
-import AnswerFour from '../assets/AnswerFour.png'
+import QuestOne from '../assets/taskOne/1.png'
+import QuestTwo from '../assets/taskTwo/1.png'
+import AnswerOne from '../assets/answerOptions/24.png'
+import AnswerTwo from '../assets/answerOptions/10.png'
+import AnswerThree from '../assets/answerOptions/5.png'
+import AnswerFour from '../assets/answerOptions/1.png'
 
 export default {
   name: 'FirstExercisePage',
   data() {
     return {
       changeVisibleQuestOrAnswer: true,
+
 
       pathToQuestOneImage: QuestOne,
       pathToQuestTwoImage: QuestTwo,
@@ -74,20 +75,34 @@ export default {
       pathToAnswerFourImage: AnswerFour,
     }
   },
+  watch: {
+    click() {
+      this.answerStep = 0
+      this.countAnswersIsValid = 0
+      this.menuOption.step = 1
+      this.pageOption.timeReading = 0
+      this.startTimer()
+    }
+  },
   methods: {
+
     handleClickWrongAnswer() {
       alert('Неправильный ответ')
     },
     handleClickRightAnswer() {
       this.changeVisibleQuestOrAnswer = !this.changeVisibleQuestOrAnswer
     },
+  },
+  props: {
+    click: {}
   }
 }
-</script>
 
+</script>
 <style scoped lang="scss">
+
 .mode-fade-enter-active, .mode-fade-leave-active {
-  transition: opacity 1.5s ease;
+  transition: opacity 0.3s ease;
 }
 
 .mode-fade-enter-from, .mode-fade-leave-to {

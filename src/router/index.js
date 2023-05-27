@@ -14,10 +14,15 @@ const routes = [
     component: MenuPage,
   },
   {
-    path: '/exercise',
+    path: '/easy',
     name: 'FirstExercise',
     component: () => import(/* webpackChunkName: "about" */ '../pages/FirstExercisePage.vue'),
   },
+  {
+    path: '/difficulty',
+    name: 'ChooseDifficulty',
+    component: () => import(/* webpackChunkName: "about" */ '../pages/Difficulty.vue')
+  }
 ]
 
 const router = createRouter({

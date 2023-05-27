@@ -5,6 +5,7 @@ import store from '@/store'
 import '@/styles/main.scss'
 import ElementPlus from 'element-plus'
 
+
 const app = createApp(App)
 
 app.use(store)
